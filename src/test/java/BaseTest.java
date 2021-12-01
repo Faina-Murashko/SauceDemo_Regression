@@ -20,10 +20,11 @@ public class BaseTest {
 
         }
 
-       /* @AfterTest
-        public void tearDown(){
+        @AfterTest
+        public void tearDown() {
             driver.quit();
+        }
 
-        }*/
-    }
+        }
+
 
