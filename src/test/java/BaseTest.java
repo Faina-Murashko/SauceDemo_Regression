@@ -11,7 +11,7 @@ public class BaseTest {
 
         @BeforeTest
         public void SetUp(){
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver" , "src/test/resources/chromedriver.exe");
             ChromeOptions options = new ChromeOptions();
             options.addArguments("--start-maximized");
             driver = new ChromeDriver(options);
@@ -20,10 +20,10 @@ public class BaseTest {
 
         }
 
-        @AfterTest
+       /* @AfterTest
         public void tearDown(){
             driver.quit();
 
-        }
+        }*/
     }
 
