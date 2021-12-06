@@ -8,6 +8,8 @@ public class InventoryAndCartPage {
     public static final By CHOISE_FIRST_PRODUCT = By.id("item_4_title_link");
     public static final By ADD_TO_CART_FIRST = By.id("add-to-cart-sauce-labs-backpack");
     public static final By SHOPPING_CART_FIRST_PRODUCT = By.className("shopping_cart_link");
+    public static final By CONTINUE_SHOPPING = By.id("continue-shopping");
+//    public static final By BACK_TO_PRODUCTS = By.id("back-to-products");
     public static final By CHOISE_NEXT_PRODUCT = By.id("item_2_title_link");
     public static final By ADD_TO_CART_NEXT = By.id("add-to-cart-sauce-labs-onesie");
     public static final By SHOPPING_CART_NEXT_PRODUCT = By.className("shopping_cart_link");
@@ -42,6 +44,14 @@ public class InventoryAndCartPage {
 
     public void shoppingCartNextProduct(){
         driver.findElement(SHOPPING_CART_NEXT_PRODUCT).click();
+    }
+
+ //   public void backToProducts(){
+ //       driver.findElement(BACK_TO_PRODUCTS).click();
+ //   }
+
+    public void continueShopping(){
+        driver.findElement(CONTINUE_SHOPPING).click();
     }
 
 }
