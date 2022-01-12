@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="5" name="Test suite" parallel="tests">
+
+
+
+    <test name="test 1">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.LoginPageTest"/>
+
+        </classes>
+    </test>
+    <test name="test 2">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.CartTest"/>
+
+        </classes>
+    </test>
+    <test name="test 3">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="tests.ShoppingCart"/>
+            <class name="tests.ProductsCriticalPathTest"/>
+
+        </classes>
+    </test>
+
+</suite>
