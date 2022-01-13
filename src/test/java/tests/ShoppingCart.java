@@ -8,8 +8,8 @@ import tests.base.BaseTest;
 
 public class ShoppingCart extends BaseTest {
 
-    @Test
-    public void CheckThePriceOfTheItemAndItsNameInTheCart() {
+    @Test(description = "check the prisce product")
+    public void CheckThePrice() {
 
         driver.get("https://www.saucedemo.com");
 
@@ -21,13 +21,14 @@ public class ShoppingCart extends BaseTest {
         password.sendKeys("secret_sauce");
         Assert.assertEquals(password.getAttribute("value"), "secret_sauce", "Invalid password");
 
+
         driver.findElement(By.xpath("//input[@type='submit']")).click();
 
         WebElement completionOfLogin = driver.findElement(By.xpath("//a[@class='shopping_cart_link']"));
         Assert.assertEquals(completionOfLogin.getAttribute("value"),
                 completionOfLogin.getAttribute("value"), "Login failed");
 
-        ////////////////////////////
+
 
         driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click();
 
@@ -35,7 +36,7 @@ public class ShoppingCart extends BaseTest {
         Assert.assertEquals(buttonRemove.getAttribute("value"),
                 buttonRemove.getAttribute("value"), "Button is not found");
 
-        ///////////////////////////
+
 
         driver.findElement(By.xpath("//a[@class='shopping_cart_link']")).click();
 

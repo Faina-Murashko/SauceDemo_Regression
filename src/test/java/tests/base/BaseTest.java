@@ -4,44 +4,41 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.testng.annotations.AfterMethod;
+import org.testng.ITestContext;
+import org.testng.annotations.*;
 
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Listeners;
 import page.CartPage;
 import page.InventoryPage;
 import page.LoginPage;
 
 import java.util.concurrent.TimeUnit;
 
-@Listeners
+@Listeners(TestListener.class)
 public class BaseTest {
     protected WebDriver driver;
     protected LoginPage loginPage;
     protected InventoryPage inventoryPage;
     protected CartPage cartPage;
 
-
-    @BeforeMethod
-    public void setUp() {
+    @Parameters({"browser"})
+    @BeforeMethod (description = "Start browser")
+    public void setUp(ITestContext context) {
         WebDriverManager.chromedriver().setup();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--start-maximized");
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-
-//        context.setAttribute("driver", driver);
-
+        context.setAttribute("driver", driver);
         loginPage = new LoginPage(driver);
         inventoryPage = new InventoryPage(driver);
         cartPage = new CartPage(driver);
 
     }
 
-    @AfterMethod
+    /*  @AfterMethod (description = "Close browser")
     public void tearDown() {
         driver.quit();
-    }
+    }*/
 
 }
 

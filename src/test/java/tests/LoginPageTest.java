@@ -5,6 +5,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import tests.base.BaseTest;
 import tests.base.Retry;
+import utils.AllureUtils;
 
 public class LoginPageTest extends BaseTest {
 
@@ -20,14 +21,14 @@ public class LoginPageTest extends BaseTest {
 
 
 
-    @Test (groups = "smoke")
+    @Test (description = "Conformity check")
     public void validUserAndPassword() {
         loginPage.loginToTheSystem();
         Assert.assertEquals(inventoryPage.getTitleText(), "PRODUCTS", "Тайтл не соответствует ожидаемому");
 
     }
 
-    @Test (dataProvider = "LoginData")
+    @Test (description = "Successful login")
     public void negativeLoginTest(String UserName, String password, String errorMassage){
         loginPage.openLoginPage();
         loginPage.login(UserName,password);
@@ -37,16 +38,18 @@ public class LoginPageTest extends BaseTest {
     }
 
 
-   /* @Test
+    @Test(description = "Password should be required")
     public void noPassword(){
         loginPage.openLoginPage();
         loginPage.login("standard_user","");
         Assert.assertEquals(loginPage.getErrorMassage(),
                 "Epic sadface: Password is required",
                 "Error Massage is invalid");
+        AllureUtils.takeScreenshot(driver);
+
     }
 
-    @Test
+    @Test(description = "User name and password should be reguired")
     public void noEverything(){
         loginPage.openLoginPage();
         loginPage.login("","");
@@ -55,14 +58,14 @@ public class LoginPageTest extends BaseTest {
                 "Error Massage is invalid");
     }
 
-    @Test
+    @Test(description = "user should be blocked")
     public void lockedUser(){
         loginPage.openLoginPage();
         loginPage.login("locked_out_user","secret_sauce");
         Assert.assertEquals(loginPage.getErrorMassage(),
                 "Epic sadface: Sorry, this user has been locked out.",
                 "User is not blocked");
-    }*/
+    }
 
 
 }
