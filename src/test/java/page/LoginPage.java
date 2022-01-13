@@ -1,5 +1,6 @@
 package page;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -17,9 +18,11 @@ public class LoginPage extends BasePage {
         super(driver);
     }
 
+    @Step("Open site")
     public void openLoginPage() {
         driver.get("https://www.saucedemo.com");
     }
+
 
     public void login(String userName, String password) {
 
@@ -34,6 +37,7 @@ public class LoginPage extends BasePage {
         return driver.findElement(ERROR_MASSAGE).getText();
     }
 
+    @Step("Login User")
     public void loginToTheSystem(){
         openLoginPage();
         login("standard_user", "secret_sauce");
