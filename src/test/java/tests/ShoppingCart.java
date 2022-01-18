@@ -1,16 +1,17 @@
 package tests;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.base.BaseTest;
+import tests.BaseTest;
 
 public class ShoppingCart extends BaseTest {
 
+    @Step("opened saucedemo")
     @Test(description = "check the prisce product")
     public void CheckThePrice() {
-
         driver.get("https://www.saucedemo.com");
 
         WebElement login = driver.findElement(By.xpath("//input[@placeholder='Username']"));

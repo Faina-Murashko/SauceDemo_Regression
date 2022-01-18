@@ -20,5 +20,9 @@ public class CartPage extends BasePage{
         driver.get("https://www.saucedemo.com/cart.html");
     }
 
+    @Step("Add to cart new product")
+    public void addToCart(String cartLink) {
+        driver.findElement(By.xpath(String.format(String.valueOf(SHOPPING_CART_LINK), cartLink))).click();
+    }
 
 }

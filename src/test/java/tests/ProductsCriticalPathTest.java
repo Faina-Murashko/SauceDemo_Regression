@@ -2,7 +2,7 @@ package tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import tests.base.BaseTest;
+import tests.BaseTest;
 import utils.AllureUtils;
 
 public class ProductsCriticalPathTest extends BaseTest {
