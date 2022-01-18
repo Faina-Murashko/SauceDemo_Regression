@@ -14,9 +14,10 @@ public class ProductsCriticalPathTest extends BaseTest {
         Assert.assertEquals(inventoryPage.getRemoveButtonText(),"REMOVE","The button is not found");
         AllureUtils.takeScreenshot(driver);
 
+
         inventoryPage.removeFromCart("Sauce Labs Onesie");
         Assert.assertEquals(inventoryPage.getAddButtonText(),"ADD TO CART","The button is not found");
-//        Assert.assertEquals();
-//        cartPage.
+        AllureUtils.takeScreenshot(driver);
+
     }
 }

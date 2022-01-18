@@ -37,7 +37,7 @@ public class LoginPage extends BasePage {
         return driver.findElement(ERROR_MASSAGE).getText();
     }
 
-    @Step("Login User")
+    @Step("Login valid User")
     public void loginToTheSystem(){
         openLoginPage();
         login("standard_user", "secret_sauce");

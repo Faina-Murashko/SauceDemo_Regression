@@ -1,5 +1,6 @@
 package tests;
 
+import io.qameta.allure.Step;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -25,19 +26,12 @@ public class LoginPageTest extends BaseTest {
     public void validUserAndPassword() {
         loginPage.loginToTheSystem();
         Assert.assertEquals(inventoryPage.getTitleText(), "PRODUCTS", "Тайтл не соответствует ожидаемому");
+        AllureUtils.takeScreenshot(driver);
 
     }
 
-    @Test (description = "Successful login")
-    public void negativeLoginTest(String UserName, String password, String errorMassage){
-        loginPage.openLoginPage();
-        loginPage.login(UserName,password);
-        Assert.assertEquals(loginPage.getErrorMassage(),
-                errorMassage,
-                "Error Massage is invalid");
-    }
 
-
+    @Step("invalid data entry without password")
     @Test(description = "Password should be required")
     public void noPassword(){
         loginPage.openLoginPage();
@@ -48,7 +42,7 @@ public class LoginPageTest extends BaseTest {
         AllureUtils.takeScreenshot(driver);
 
     }
-
+    @Step("invalid data entry without UserName and Password")
     @Test(description = "User name and password should be reguired")
     public void noEverything(){
         loginPage.openLoginPage();
@@ -56,8 +50,10 @@ public class LoginPageTest extends BaseTest {
         Assert.assertEquals(loginPage.getErrorMassage(),
                 "Epic sadface: Username is required",
                 "Error Massage is invalid");
-    }
+        AllureUtils.takeScreenshot(driver);
 
+    }
+    @Step("data entry locked user")
     @Test(description = "user should be blocked")
     public void lockedUser(){
         loginPage.openLoginPage();
@@ -65,6 +61,8 @@ public class LoginPageTest extends BaseTest {
         Assert.assertEquals(loginPage.getErrorMassage(),
                 "Epic sadface: Sorry, this user has been locked out.",
                 "User is not blocked");
+        AllureUtils.takeScreenshot(driver);
+
     }
 
 
